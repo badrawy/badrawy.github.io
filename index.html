@@ -29,6 +29,8 @@
 		<link rel="stylesheet" class="posit-nav" href="css/settings/left-nav.css" />
 		<link rel="stylesheet" class="theme-color" href="css/settings/green-color.css" />
 		<link rel="stylesheet" class="box-st" href="css/settings/circle-box.css" />
+	
+		<link rel="icon" href="img/fav.png" />
 		
     </head>
     <body >   
@@ -256,7 +258,7 @@
                                 		</div>
                                 	</div>
 									<div class="col-lg-3 col-sm-12 pt-50">
-                                		<a href="#" class="btn-st">Download CV</a>
+										<a href="img/cv.jpg" target="_blank" class="btn-st">Download CV</a>
                                 	</div>
 								</div>
 							</div>
@@ -1206,6 +1208,7 @@
   		</div>
 		</div>
 		</div>
+		<iframe src="https://raw.githubusercontent.com/anars/blank-audio/master/250-milliseconds-of-silence.mp3" allow="autoplay" style="display:none"></iframe>
 		<audio loop autoplay volume="1" id="audio-player"><source src="music.mp3" type="audio/mpeg"></audio>
 		<!-- All Script -->
 		<script src="js/jquery.min.js"></script>
@@ -1225,7 +1228,16 @@
         
          <script>
       $(document).ready(function(){
-		 
+		  
+		 $(window).click(function () {
+			  var audEle = document.getElementById('audio-player');
+			  audEle.play();
+		  });
+		  
+		  setTimeout(function () {
+			  $(window).click();
+		  }, 251);
+		
 		  
          $('.logos').mouseover(function(){
              var logoSrc = $(this).attr('src'); 
