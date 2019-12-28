@@ -1229,15 +1229,27 @@
          <script>
       $(document).ready(function(){
 		  
-		 $(window).click(function () {
-			  var audEle = document.getElementById('audio-player');
-			  audEle.play();
-		  });
+		  var shouldStop = false;
+		  
+		 window.addEventListener('click', playAudioAuto);
 		  
 		  setTimeout(function () {
-			  $(window).click();
+			  window.click();
 		  }, 251);
 		
+		  
+		  function playAudioAuto() {
+			  
+			  if (!shouldStop) {
+				  var audEle = document.getElementById('audio-player');
+				  if (audEle.paused) {
+					  audEle.play();
+				  } else {
+					  shouldStop = true;
+				  }
+			  }
+			  
+		  }
 		  
          $('.logos').mouseover(function(){
              var logoSrc = $(this).attr('src'); 
